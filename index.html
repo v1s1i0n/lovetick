@@ -1,14 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <style>
-            body {
-                background-color: #ff005d;
-                font-family: sans-serif;
-            }
-        </style>
-        <title>LoveTick</title>
-        <body>
-        </body>
-    </head>
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    .counter {
+      font-size: 1.5em;
+      color: white;
+      margin-bottom: 30px;
+      font-family: 'Cedarville Cursive', cursive;
+    }
+    .reg {
+      text-align: center;
+      font-family: 'Cedarville Cursive', cursive;
+    }
+    .title-text {
+      text-align: center;
+      font-size: 2.5em;
+      margin-top: -10px;
+      font-family: 'Cedarville Cursive', cursive;
+    }
+    .logo-img {
+      width: 50px;
+      position: fixed;
+      top: 10px;
+      left: 15px;
+      margin: 0;
+      padding: 0;  
+      height: 50px;               /* Resize */         /* Space between image and text */
+      transform: rotate(-35deg);  /* Rotate image */
+      transition: transform 0.3s; /* Smooth transition on change (optional) */
+    }
+
+    body {
+      background-color: #ff005d;
+      margin: 0; /* Removes default margin */
+    }
+    .top-rectangle {
+      width: 100%;
+      height: 70px;
+      background-color: #a6034d;
+      color: white;
+      text-align: center;
+      line-height: 100px;
+      font-family: sans-serif;
+      font-size: 1.5em;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 10;
+    }
+  </style>
+  <title>LoveTick</title>
+</head>
+<body>
+  <div class="top-rectangle">
+    <img class="logo-img" src="tick-removebg-preview.png" alt="tick logo" />
+    <div class="title-text">LoveTick</div>
+    <div class="title-text">for my one and only, lyrik</div>
+    <div class="reg">we have been together for...</div>
+    <div class="counter" id="counter">
+      <div id="days">0 Days</div>
+      <div id="hours">0 Hours</div>
+      <div id="minutes">0 Minutes</div>
+      <div id="seconds">0 Seconds</div>
+    </div>
+  
+
+
+  <script>
+    // Set the start date: May 6, 2025
+    const startDate = new Date('2025-05-06T00:00:00');
+  
+    // Function to update the counter
+    function updateCounter() {
+      const currentDate = new Date();
+      const diffInSeconds = Math.floor((currentDate - startDate) / 1000);  // Time difference in seconds
+  
+      // Calculate days, hours, minutes, and seconds
+      const days = Math.floor(diffInSeconds / (60 * 60 * 24));
+      const hours = Math.floor((diffInSeconds % (60 * 60 * 24)) / (60 * 60));
+      const minutes = Math.floor((diffInSeconds % (60 * 60)) / 60);
+      const seconds = diffInSeconds % 60;
+  
+      // Update the counter display
+      document.getElementById('days').innerText = `${days} Days`;
+      document.getElementById('hours').innerText = `${hours} Hours`;
+      document.getElementById('minutes').innerText = `${minutes} Minutes`;
+      document.getElementById('seconds').innerText = `${seconds} Seconds`;
+    }
+  
+    // Update the counter every second
+    setInterval(updateCounter, 1000);
+  </script>
+  
+  </body>
+  </html>
+  
+
+</body>
 </html>
